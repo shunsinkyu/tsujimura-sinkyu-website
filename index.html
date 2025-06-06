@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訪問鍼灸マッサージ辻村鍼灸接骨院</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2c5282;
+            --secondary-color: #4a90e2;
+            --text-color: #333;
+            --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Yu Gothic Medium', 'Hiragino Sans', sans-serif;
+            line-height: 1.6;  
+            color: var(--text-color);
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダーのスタイル */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .header-logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .header-contact {
+            text-align: right;
+        }
+
+        .header-phone {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .header-hours {
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.5rem;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* フッタースタイル */
+        footer {
+            background: #f5f7fa;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .footer-section p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #666;
+            font-size: 0.8em;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-contact {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* メインビジュアル */
+        .main-visual {
+            background: url('images/main-visual.jpg') center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .main-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .main-visual-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-visual-title {
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .main-visual-subtitle {
+            font-size: 1.2em;
+        }
+
+        /* リンクグリッド */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* セクション共通スタイル */
+        .section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .section:nth-child(even) {
+            background: #f5f7fa;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* About セクション */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2;
+        }
+
+        /* Effect セクション */
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .effect-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .effect-title {
+            color: var(--primary-color);
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .effect-description {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Relief セクション */
+        .relief-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .relief-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            gap: 20px;
+        }
+
+        .relief-number {
+            font-size: 2em;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .relief-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Strength セクション */
+        .strength-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .strength-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .strength-item {
+            margin-bottom: 30px;
+        }
+
+        .strength-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* News セクション */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-date {
+            color: #666;
+            min-width: 120px;
+        }
+
+        .news-more {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .news-more a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* モバイル用スタイル */
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .main-visual {
+                height: 400px;
+            }
+
+            .main-visual-title {
+                font-size: 1.8em;
+            }
+
+            .effects-grid,
+            .relief-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .relief-card {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.6em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <a href="/" class="header-logo">辻村鍼灸接骨院</a>
+                </div>
+                <div class="header-contact">
+                    <div class="header-phone">📞 090-5810-1536</div>
+                    <div class="business-hours">
+                        [電話受付時間]<br>
+                        月曜〜土曜 AM9:00〜PM6:00<br>
+                        [訪問時間]<br>
+                        月曜〜土曜 AM9:00〜PM6:00※日曜休診
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">ホーム</a>
+                <a href="/symptom.html" class="nav-link">このような症状でお困りの方</a>
+                <a href="/service.html" class="nav-link">サービス内容（マッサージ、鍼灸、機能訓練）</a>
+                <a href="/flow.html" class="nav-link">ご利用までの流れ</a>
+                <a href="/faq.html" class="nav-link">よくある質問</a>
+                <a href="/institution.html" class="nav-link">介護施設での利用</a>
+                <a href="/trial.html" class="nav-link">無料体験を申し込む</a>
+                <a href="/staff.html" class="nav-link">スタッフ紹介</a>
+                <a href="/recruit.html" class="nav-link">求人（スタッフ募集）</a>
+                <a href="/manga.html" class="nav-link">漫画で分かる！訪問鍼灸マッサージ</a>
+                <a href="https://youtube.com" class="nav-link">YOUTUBE なごみやch</a>
+                <a href="/company.html" class="nav-link">会社概要</a>
+                <a href="/contact.html" class="nav-link">お問い合せ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="main-visual">
+            <div class="main-visual-content">
+                <div class="clinic-image-wrapper">
+                    <img src="images/clinic-building-resized.jpg" alt="辻村鍼灸接骨院 外観" class="clinic-image">
+                </div>
+                <h1 class="main-visual-title">地域で暮らす皆さまへ</h1>
+                <p class="main-visual-subtitle">ご自宅やご入居中の施設で受けられるマッサージ・鍼灸・機能訓練をご提供しています</p>
+            </div>
+        </section>
+
+        <div class="link-grid">
+            <a href="/symptom.html" class="link-card">
+                <div class="symptom-image-wrapper">
+                    <img src="images/elderly-care.jpg" alt="症状の方" class="symptom-image">
+                </div>
+                <div class="link-card-content">
+                    <div class="link-title">症状の方</div>
+                    <div class="link-subtitle">このような症状で<br>お困りの方</div>
+                </div>
+            </a>
+            <a href="/service.html" class="link-card">
+                <div class="service-image-wrapper">
+                    <img src="images/service-training.jpg" alt="サービス内容" class="service-image">
+                </div>
+                <div class="link-card-content">
+                    <div class="link-title">サービス内容</div>
+                    <div class="link-subtitle">（マッサージ、鍼灸、機能訓練）</div>
+                </div>
+            </a>
+            <a href="/flow.html" class="link-card">
+                <img src="/images/flow.jpg" alt="ご利用までの流れ">
+                <div class="link-card-content">
+                    <div class="link-title">ご利用までの流れ</div>
+                    <div class="link-subtitle">ご利用までの流れ</div>
+                </div>
+            </a>
+            <a href="/faq.html" class="link-card">
+                <div class="faq-image-wrapper">
+                    <img src="images/faq-consultation.jpg" alt="よくある質問" class="faq-image">
+                </div>
+                <div class="link-card-content">
+                    <div class="link-title">よくある質問</div>
+                    <div class="link-subtitle">よくある質問</div>
+                </div>
+            </a>
+            <a href="/institution.html" class="link-card">
+                <div class="institution-image-wrapper">
+                    <img src="images/institution-care.jpg" alt="介護施設での利用" class="institution-image">
+                </div>
+                <div class="link-card-content">
+                    <div class="link-title">介護施設での利用</div>
+                    <div class="link-subtitle">介護施設での利用</div>
+                </div>
+            </a>
+            <a href="/trial.html" class="link-card">
+                <div class="trial-image-wrapper">
+                    <img src="images/trial-massage.jpg" alt="無料体験を申し込む" class="trial-image">
+                </div>
+                <div class="link-card-content">
+                    <div class="link-title">無料体験を申し込む</div>
+                    <div class="link-subtitle">無料体験を<br>申し込む</div>
+                </div>
+            </a>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">「訪問医療マッサージ」とは？</h2>
+                    <div class="section-subtitle">ABOUT</div>
+                </div>
+                <div class="about-content">
+                    <p>ご利用者の皆様のご自宅や、入居している介護施設にお伺いし、医師の同意の元、マッサージや鍼灸、機能訓練を行います。</p>
+                    <p>保険対象の疾患・症状として「麻痺」「関節拘縮」「筋力低下（筋萎縮）」「神経痛」「慢性的な身体の痛み」「骨折などの後遺症」などが挙げられます。</p>
+                    <p>無料体験・お電話での対応は年中無休で行っております。</p>
+                    <p>ご利用に関してのご質問は、お気軽にお問い合せください。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">マッサージによって期待できる効果</h2>
+                    <div class="section-subtitle">EFFECT</div>
+                </div>
+                <div class="effects-grid">
+                    <div class="effect-card">
+                        <h3 class="effect-title">血行促進</h3>
+                        <p class="effect-description">血行が良くなり痛みを和らげます。また免疫力の向上も期待されます。</p>
+                    </div>
+                    <div class="effect-card">
+                        <h3 class="effect-title">筋肉緊張の緩和</h3>
+                        <p class="effect-description">筋肉をほぐす事で痛みや痺れの緩和が期待されます。</p>
+                    </div>
+                    <div class="effect-card">
+                        <h3 class="effect-title">関節拘縮の改善</h3>
+                        <p class="effect-description">固まった関節の可動域を広る施術・運動を行います。</p>
+                    </div>
+                    <div class="effect-card">
+                        <h3 class="effect-title">リハビリ効果</h3>
+                        <p class="effect-description">施術と合わせてその方に合わせた機能訓練を行います。（スポーツトレーナー在籍）</p>
+                    </div>
+                    <div class="effect-card">
+                        <h3 class="effect-title">鍼灸治療</h3>
+                        <p class="effect-description">神経痛・疼痛性障害、慢性的な痛みに対して鍼灸を用いた治療を行います。</p>
+                    </div>
+                    <div class="effect-card">
+                        <h3 class="effect-title">コミュニケーション</h3>
+                        <p class="effect-description">会話や触れ合いにより認知機能低下の予防効果も期待されます。（認知症サポーター在籍）</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">なごみやの４つの安心</h2>
+                    <div class="section-subtitle">RELIEF</div>
+                </div>
+                <div class="relief-grid">
+                    <div class="relief-card">
+                        <div class="relief-number">1</div>
+                        <div class="relief-content">
+                            <h3>医師の同意のもと施術を行います</h3>
+                            <p>かかりつけの医師に「鍼灸マッサージの同意書」をご記入頂き「同意書」に従い施術を行います。</p>
+                        </div>
+                    </div>
+                    <div class="relief-card">
+                        <div class="relief-number">2</div>
+                        <div class="relief-content">
+                            <h3>「医療保険」を使うため介護保険との併用が可能です</h3>
+                            <p>訪問鍼灸マッサージでは医療保険・健康保険を適用のため現在使われている介護保険のサービスと合わせてご利用頂けます。現在ご利用の介護サービスを減らす必要などもございません。</p>
+                        </div>
+                    </div>
+                    <div class="relief-card">
+                        <div class="relief-number">3</div>
+                        <div class="relief-content">
+                            <h3>スタッフは全員 国家資格の「あん摩マッサージ指圧師」「鍼師」「灸師」</h3>
+                            <p>施術に訪問させて頂くスタッフは全員 国家資格を持った「治療家」です。様々なキャリアや知見を基に患者さまお一人お一人に合わせた総合的な「施術」をご提案させて頂きます。</p>
+                        </div>
+                    </div>
+                    <div class="relief-card">
+                        <div class="relief-number">4</div>
+                        <div class="relief-content">
+                            <h3>無料体験 大好評実施中です！</h3>
+                            <p>「どんなサービスなのか分からない」「どんな人が来るのか不安だ」という方の為に「無料体験」を行っています！同席されたいご家族さまの為に、土日祝・営業時間外での無料体験も行っております！まずはお気軽にご相談下さい！！！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">当院の強み</h2>
+                    <div class="section-subtitle">STRENGTH</div>
+                </div>
+                <div class="strength-content">
+                    <div class="strength-list">
+                        <div class="strength-item">
+                            <h3>①20年以上の経験を持つ院長の指導体制</h3>
+                            <p>鍼灸接骨院で20年以上の経験を持つ院長の指導のもと、スタッフ研修を丁寧に行っています。確かな技術と安心を提供できるよう努めています。</p>
+                        </div>
+                        <div class="strength-item">
+                            <h3>②機能訓練・介護技術研修</h3>
+                            <p>マッサージ・鍼灸に加え、現場で需要の高い「機能訓練（リハビリ）」と「介護技術（移乗や体位変換）」の研修を行っております。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="news-section">
+                    <h2 class="section-title">お知らせ</h2>
+                    <div class="section-subtitle">NEWS</div>
+                    <div class="news-more">
+                        <a href="#" class="more-link">もっと見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>【事業所情報】</h3>
+                    <div class="office-info">
+                        <div class="office">
+                            <h4>辻村鍼灸接骨院</h4>
+                            <p>〒442-0824 愛知県豊川市美和通２丁目16−１</p>
+                            <p>TEL.0533-83-1655</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>訪問可能エリア</h3>
+                    <div class="area-info">
+                        <h4>辻村鍼灸接骨院</h4>
+                        <p>豊川市、豊橋市、蒲郡市、新城市、田原市を中心に訪問いたします</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>会社情報</h3>
+                    <nav class="footer-nav">
+                        <a href="/company.html">会社概要</a><br>
+                        <a href="/contact.html">お問い合わせ</a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="/privacy.html">個人情報保護方針</a>
+            </div>
+
+            <div class="footer-copyright">
+                ©2025 辻村鍼灸接骨院
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

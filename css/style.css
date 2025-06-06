@@ -1,0 +1,156 @@
+.strength-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.strength-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.strength-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.strength-item h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.strength-item p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.clinic-image-wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.clinic-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.clinic-image:hover {
+  transform: scale(1.02);
+}
+
+.symptom-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.symptom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.link-card:hover .symptom-image {
+    transform: scale(1.05);
+}
+
+.service-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.service-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.link-card:hover .service-image {
+    transform: scale(1.05);
+}
+
+.faq-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.faq-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.link-card:hover .faq-image {
+    transform: scale(1.05);
+}
+
+.institution-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.institution-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.link-card:hover .institution-image {
+    transform: scale(1.05);
+}
+
+.trial-image-wrapper {
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.trial-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.link-card:hover .trial-image {
+    transform: scale(1.05);
+}
+
+.faq-main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.institution-main-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .main-visual-title {
+    font-size: 1.5rem;
+  }
+
+  .main-visual-subtitle {
+    font-size: 1rem;
+  }
+} 
