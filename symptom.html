@@ -8,30 +8,48 @@
 </head>
 <body>
     <header>
-        <div class="header-bar">
-            <div class="logo">
-                <img src="images/logo.png" alt="なごみやロゴ">
-            </div>
-            <div class="contact-info">
-                <div class="phone-number">0120-178-511</div>
-                <div class="business-hours">
-                    [電話受付時間]<br>
-                    月曜〜土曜 AM9:00〜PM6:00<br>
-                    [訪問時間]<br>
-                    月曜〜土曜 AM9:00〜PM6:00※日曜休診
+        <div class="header-top">
+            <div class="container">
+                <a href="index.html" class="header-logo">辻村鍼灸接骨院</a>
+                <div class="header-contact">
+                    <a href="tel:090-5810-1536" class="header-phone">090-5810-1536</a>
+                    <div class="header-hours">
+                        <div class="header-hours-item">
+                            <span class="header-hours-label">[電話受付時間]</span>
+                            <span class="header-hours-time">月曜〜土曜 AM9:00〜PM6:00</span>
+                        </div>
+                        <div class="header-hours-item">
+                            <span class="header-hours-label">[訪問時間]</span>
+                            <span class="header-hours-time">月曜〜土曜 AM9:00〜PM6:00</span>
+                        </div>
+                        <div class="header-hours-note">※日曜休診</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="symptom.html">このような症状でお困りの方</a></li>
-                <li><a href="service.html">サービス内容</a></li>
-                <li><a href="flow.html">ご利用までの流れ</a></li>
-                <li><a href="faq.html">よくある質問</a></li>
-                <li><a href="institution.html">介護施設での利用</a></li>
-                <li><a href="trial.html">無料体験を申し込む</a></li>
-            </ul>
+        <nav class="header-nav">
+            <div class="header-nav-container">
+                <ul class="header-nav-list">
+                    <li class="header-nav-item">
+                        <a href="symptom.html" class="header-nav-link active">このような症状でお困りの方</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="service.html" class="header-nav-link">サービス内容</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="flow.html" class="header-nav-link">ご利用までの流れ</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="faq.html" class="header-nav-link">よくある質問</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="institution.html" class="header-nav-link">介護施設での利用</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="trial.html" class="header-nav-link">無料体験を申し込む</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -45,30 +63,62 @@
                     <h2>こんな症状で<br>お困りではないですか？</h2>
                 </div>
             </div>
+            <div class="symptom-image-placeholder">
+                <img src="images/placeholder.jpg" alt="このような症状でお困りの方のイメージ" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+            </div>
         </section>
 
         <section class="symptoms-list">
-            <ul>
-                <li>買い物や通院が困難、<br>お一人での歩行が不安定な方</li>
-                <li>関節に痛みや拘縮があり困っている方</li>
-                <li>ケガや事故で骨折経験や<br>しびれなどの後遺症がある方</li>
-                <li>脳梗塞、脳出血などの<br>後遺症でお悩みの方</li>
-                <li>筋力が低下していて<br>「寝たきり」になるのが心配な方</li>
-                <li>疼痛や神経痛、慢性腰痛などで<br>お困りの方</li>
-            </ul>
+            <h2>このような症状の方</h2>
+            <div class="symptoms-card-grid">
+                <div class="symptoms-card">
+                    <p>買い物や通院が困難、<br>お一人での歩行が不安定な方</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>関節に痛みや拘縮があり困っている方</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>ケガや事故で骨折経験や<br>しびれなどの後遺症がある方</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>脳梗塞、脳出血などの<br>後遺症でお悩みの方</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>筋力が低下していて<br>「寝たきり」になるのが心配な方</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>疼痛や神経痛、慢性腰痛などで<br>お困りの方</p>
+                </div>
+            </div>
         </section>
 
         <section class="main-symptoms">
             <h2>主な症状<span class="en-title">MAIN SYMPTOMS</span></h2>
-            <div class="symptoms-grid">
-                <div class="symptom-item">筋麻痺</div>
-                <div class="symptom-item">関節拘縮</div>
-                <div class="symptom-item">筋萎縮<br>能力低下</div>
-                <div class="symptom-item">リンパ浮腫</div>
-                <div class="symptom-item">慢性的な痛み</div>
-                <div class="symptom-item">神経痛</div>
-                <div class="symptom-item">ケガや手術の<br>後遺症</div>
-                <div class="symptom-item">運動機能障害</div>
+            <div class="symptoms-card-grid">
+                <div class="symptoms-card">
+                    <p>筋麻痺</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>関節拘縮</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>筋萎縮<br>能力低下</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>リンパ浮腫</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>慢性的な痛み</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>神経痛</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>ケガや手術の<br>後遺症</p>
+                </div>
+                <div class="symptoms-card">
+                    <p>運動機能障害</p>
+                </div>
             </div>
         </section>
 
@@ -118,7 +168,7 @@
             </div>
 
             <div class="footer-section">
-                <h3>【株式会社アコード】</h3>
+                <h3>【事業所情報】</h3>
                 <div class="office-info">
                     <div class="office">
                         <h4>辻村鍼灸接骨院</h4>
@@ -126,6 +176,19 @@
                         <p>TEL.0533-83-1655</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="footer-nav-section">
+                <h3>【サイトマップ】</h3>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="symptom.html">このような症状でお困りの方</a></li>
+                    <li><a href="service.html">サービス内容</a></li>
+                    <li><a href="flow.html">ご利用までの流れ</a></li>
+                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="institution.html">介護施設での利用</a></li>
+                    <li><a href="trial.html">無料体験を申し込む</a></li>
+                </ul>
             </div>
         </div>
 
@@ -135,9 +198,21 @@
                 <a href="privacy.html">個人情報保護方針</a>
             </div>
             <div class="copyright">
-                <p>©2025 株式会社アコード</p>
+                <p>©2025 会社情報</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuButton.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html> 

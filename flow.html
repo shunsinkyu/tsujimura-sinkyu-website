@@ -5,33 +5,376 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ご利用までの流れ・料金 | 訪問鍼灸マッサージ辻村鍼灸接骨院</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .flow-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .flow-item {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .flow-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .flow-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #2c5282;
+        }
+
+        .flow-number {
+            color: #2c5282;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .flow-content h3 {
+            color: #2c5282;
+            font-size: 1.4em;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+        }
+
+        .flow-content p {
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .flow-container {
+                padding: 0 15px;
+            }
+
+            .flow-item {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+
+            .flow-number {
+                font-size: 2em;
+            }
+        }
+
+        /* 料金表のスタイル */
+        .price-tables {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .price-table {
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+
+        .price-table h3 {
+            color: #2c5282;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .price-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-table th {
+            background: #2c5282;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .price-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border: 1px solid #e2e8f0;
+        }
+
+        .price-table td:first-child {
+            text-align: left;
+            background: #f8fafc;
+            font-weight: 500;
+        }
+
+        /* ストライプ効果 */
+        .price-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        /* ホバー効果 */
+        .price-table tr:hover {
+            background: #edf2f7;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .price-tables {
+                padding: 0 10px;
+            }
+
+            .price-table {
+                margin-bottom: 30px;
+            }
+
+            .price-table table {
+                font-size: 0.9em;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 10px;
+            }
+        }
+
+        /* 特定の料金表の調整 */
+        .price-table table.narrow {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 料金表の追加スタイル */
+        .price-note {
+            color: #666;
+            font-size: 0.9em;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .section-note {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 1em;
+            font-weight: normal;
+        }
+
+        .price-table h4 {
+            color: #2c5282;
+            font-size: 1.1em;
+            margin: 30px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2c5282;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .price-table table {
+            min-width: 100%;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .price-table th {
+            background: #2c5282;
+            color: #ffffff;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: bold;
+            white-space: normal;
+            vertical-align: middle;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .price-table td {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            vertical-align: middle;
+            line-height: 1.4;
+        }
+
+        .price-table td:first-child {
+            text-align: left;
+            background: #f8fafc;
+            font-weight: 500;
+            white-space: nowrap;
+            width: 100px;
+        }
+
+        .price-table .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 20px;
+            background: 
+                linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+                linear-gradient(to right, rgba(255,255,255,0), white 70%) 100% 0,
+                radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
+                radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 100% 0;
+            background-repeat: no-repeat;
+            background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+            background-position: 0 0, 100% 0, 0 0, 100% 0;
+            background-attachment: local, local, scroll, scroll;
+        }
+
+        @media (max-width: 768px) {
+            .price-table {
+                margin: 0 -15px;
+                padding: 0 15px;
+            }
+
+            .price-table table {
+                font-size: 0.85em;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 8px 6px;
+            }
+
+            .section-note {
+                display: block;
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+
+        /* フッターナビゲーションの追加スタイル */
+        .footer-nav {
+            background: #f8fafc;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-nav-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav-item {
+            margin: 0;
+        }
+
+        .footer-nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            color: #2c5282;
+            text-decoration: none;
+            font-size: 0.95em;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-nav-link:hover {
+            background: #ebf8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .footer-nav-link::before {
+            content: "›";
+            margin-right: 10px;
+            color: #4299e1;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .footer-nav {
+                padding: 30px 0;
+                margin-top: 40px;
+            }
+
+            .footer-nav .container {
+                padding: 0 15px;
+            }
+
+            .footer-nav-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .footer-nav-link {
+                padding: 10px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="header-bar">
-            <div class="logo">
-                <img src="images/logo.png" alt="辻村鍼灸接骨院ロゴ">
-            </div>
-            <div class="contact-info">
-                <div class="phone-number">090-5810-1536</div>
-                <div class="business-hours">
-                    [電話受付時間]<br>
-                    月曜〜土曜 AM9:00〜PM6:00<br>
-                    [訪問時間]<br>
-                    月曜〜土曜 AM9:00〜PM6:00※日曜休診
+        <div class="header-top">
+            <div class="container">
+                <a href="index.html" class="header-logo">辻村鍼灸接骨院</a>
+                <div class="header-contact">
+                    <a href="tel:090-5810-1536" class="header-phone">090-5810-1536</a>
+                    <div class="header-hours">
+                        <div class="header-hours-item">
+                            <span class="header-hours-label">[電話受付時間]</span>
+                            <span class="header-hours-time">月曜〜土曜 AM9:00〜PM6:00</span>
+                        </div>
+                        <div class="header-hours-item">
+                            <span class="header-hours-label">[訪問時間]</span>
+                            <span class="header-hours-time">月曜〜土曜 AM9:00〜PM6:00</span>
+                        </div>
+                        <div class="header-hours-note">※日曜休診</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">ホーム</a></li>
-                <li><a href="symptom.html">このような症状でお困りの方</a></li>
-                <li><a href="service.html">サービス内容</a></li>
-                <li><a href="flow.html">ご利用までの流れ</a></li>
-                <li><a href="faq.html">よくある質問</a></li>
-                <li><a href="institution.html">介護施設での利用</a></li>
-                <li><a href="trial.html">無料体験を申し込む</a></li>
-            </ul>
+        <nav class="header-nav">
+            <div class="header-nav-container">
+                <ul class="header-nav-list">
+                    <li class="header-nav-item">
+                        <a href="symptom.html" class="header-nav-link">このような症状でお困りの方</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="service.html" class="header-nav-link">サービス内容</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="flow.html" class="header-nav-link active">ご利用までの流れ</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="faq.html" class="header-nav-link">よくある質問</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="institution.html" class="header-nav-link">介護施設での利用</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="trial.html" class="header-nav-link">無料体験を申し込む</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -91,169 +434,243 @@
             <div class="price-title">COST</div>
 
             <div class="price-tables">
+                <!-- 訪問マッサージ料金表 -->
                 <div class="price-table">
-                    <h3>マッサージ</h3>
-                    <table>
-                        <tr>
-                            <th>部位数</th>
-                            <th>料金</th>
-                            <th>1割</th>
-                            <th>2割</th>
-                            <th>3割</th>
-                        </tr>
-                        <tr>
-                            <td>1部位</td>
-                            <td>450円</td>
-                            <td>45円</td>
-                            <td>90円</td>
-                            <td>135円</td>
-                        </tr>
-                        <tr>
-                            <td>2部位</td>
-                            <td>900円</td>
-                            <td>90円</td>
-                            <td>180円</td>
-                            <td>270円</td>
-                        </tr>
-                        <tr>
-                            <td>3部位</td>
-                            <td>1,350円</td>
-                            <td>135円</td>
-                            <td>270円</td>
-                            <td>405円</td>
-                        </tr>
-                        <tr>
-                            <td>4部位</td>
-                            <td>1,800円</td>
-                            <td>180円</td>
-                            <td>360円</td>
-                            <td>540円</td>
-                        </tr>
-                        <tr>
-                            <td>5部位</td>
-                            <td>2,250円</td>
-                            <td>225円</td>
-                            <td>450円</td>
-                            <td>675円</td>
-                        </tr>
-                    </table>
+                    <h3>訪問マッサージ 料金表（療養費）</h3>
+                    <p class="price-note">表記の料金は１回あたりの金額です。（ ）内は医療保険の自己負担割合が１割の場合の金額です。</p>
+                    <p class="price-note">福祉受給者証、障害医療証をお持ちの方は自己負担金は0円です。</p>
+                    
+                    <h4>マッサージ<span class="section-note">※マッサージの部位数は、医師発行の同意書に基づきます。</span></h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>同一日・同一建物で<br>施術を行った患者数</th>
+                                <th>マッサージ<br>1部位</th>
+                                <th>マッサージ<br>2部位</th>
+                                <th>マッサージ<br>3部位</th>
+                                <th>マッサージ<br>4部位</th>
+                                <th>マッサージ<br>5部位</th>
+                            </tr>
+                            <tr>
+                                <td>1人</td>
+                                <td>2,750円<br>（275円）</td>
+                                <td>3,200円<br>（320円）</td>
+                                <td>3,650円<br>（365円）</td>
+                                <td>4,100円<br>（410円）</td>
+                                <td>4,550円<br>（455円）</td>
+                            </tr>
+                            <tr>
+                                <td>2人</td>
+                                <td>1,600円<br>（160円）</td>
+                                <td>2,050円<br>（205円）</td>
+                                <td>2,500円<br>（250円）</td>
+                                <td>2,950円<br>（295円）</td>
+                                <td>3,400円<br>（340円）</td>
+                            </tr>
+                            <tr>
+                                <td>3〜9人</td>
+                                <td>910円<br>（91円）</td>
+                                <td>1,360円<br>（136円）</td>
+                                <td>1,810円<br>（181円）</td>
+                                <td>2,260円<br>（226円）</td>
+                                <td>2,710円<br>（271円）</td>
+                            </tr>
+                            <tr>
+                                <td>10人以上</td>
+                                <td>600円<br>（60円）</td>
+                                <td>1,050円<br>（105円）</td>
+                                <td>1,500円<br>（150円）</td>
+                                <td>1,950円<br>（195円）</td>
+                                <td>2,400円<br>（240円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>変形徒手矯正術（関節拘縮に対する施術）<span class="section-note">※変形徒手矯正術は、医師発行の同意書に基づきます。</span></h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>部位数</th>
+                                <th>1肢</th>
+                                <th>2肢</th>
+                                <th>3肢</th>
+                                <th>4肢</th>
+                            </tr>
+                            <tr>
+                                <td>料金（1割負担）</td>
+                                <td>470円<br>（47円）</td>
+                                <td>940円<br>（94円）</td>
+                                <td>1,410円<br>（141円）</td>
+                                <td>1,880円<br>（188円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>温罨法・電気光線器具</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>項目</th>
+                                <th>金額（1割）</th>
+                            </tr>
+                            <tr>
+                                <td>温罨法</td>
+                                <td>180円<br>（18円）</td>
+                            </tr>
+                            <tr>
+                                <td>温罨法＋電気光線器具</td>
+                                <td>300円<br>（30円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>はり・きゅう料金（1回目）</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>種類</th>
+                                <th>金額（1割）</th>
+                            </tr>
+                            <tr>
+                                <td>はり又はきゅう</td>
+                                <td>1,950円<br>（195円）</td>
+                            </tr>
+                            <tr>
+                                <td>はり、きゅう併用</td>
+                                <td>2,230円<br>（223円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>はり・きゅう料金（2回目以降）</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>種類</th>
+                                <th>金額（1割）</th>
+                            </tr>
+                            <tr>
+                                <td>はり又はきゅう</td>
+                                <td>1,610円<br>（161円）</td>
+                            </tr>
+                            <tr>
+                                <td>はり、きゅう併用</td>
+                                <td>1,770円<br>（177円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>はり・きゅう加算</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>項目</th>
+                                <th>金額（1割）</th>
+                            </tr>
+                            <tr>
+                                <td>電療料（電気鍼、温灸器等）</td>
+                                <td>100円<br>（10円）</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <h4>施術報告書交付料</h4>
+                    <div class="table-wrapper">
+                        <table>
+                            <tr>
+                                <th>施術報告書交付料（医師に施術報告書を提出した場合）</th>
+                                <th>料金（1割負担）</th>
+                            </tr>
+                            <tr>
+                                <td>施術報告書交付料</td>
+                                <td>480円<br>（48円）</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
+                <!-- 訪問はりきゅう料金表 -->
                 <div class="price-table">
-                    <h3>変形徒手矯正術（加算）※4部位まで</h3>
-                    <table>
-                        <tr>
-                            <th>部位数</th>
-                            <th>料金</th>
-                            <th>1割</th>
-                            <th>2割</th>
-                            <th>3割</th>
-                        </tr>
-                        <tr>
-                            <td>1部位</td>
-                            <td>+470円</td>
-                            <td>+47円</td>
-                            <td>+94円</td>
-                            <td>+141円</td>
-                        </tr>
-                        <tr>
-                            <td>2部位</td>
-                            <td>+940円</td>
-                            <td>+94円</td>
-                            <td>+188円</td>
-                            <td>+282円</td>
-                        </tr>
-                        <tr>
-                            <td>3部位</td>
-                            <td>+1,410円</td>
-                            <td>+141円</td>
-                            <td>+282円</td>
-                            <td>+423円</td>
-                        </tr>
-                        <tr>
-                            <td>4部位</td>
-                            <td>+1,880円</td>
-                            <td>+188円</td>
-                            <td>+376円</td>
-                            <td>+564円</td>
-                        </tr>
-                    </table>
-                </div>
+                    <h3>訪問はりきゅう 料金表（療養費）</h3>
+                    <p class="price-note">表記の料金は１回あたりの金額です。（ ）内は医療保険の自己負担割合が１割の場合の金額です。</p>
+                    <p class="price-note">福祉受給者証、障害医療証をお持ちの方は自己負担金は0円です。</p>
 
-                <div class="price-table">
-                    <h3>鍼灸</h3>
+                    <h4>初検料（初回のみ加算）</h4>
                     <table>
                         <tr>
                             <th>種類</th>
-                            <th>料金</th>
-                            <th>初検料</th>
+                            <th>金額（1割）</th>
                         </tr>
                         <tr>
-                            <td>鍼</td>
-                            <td>1,610円</td>
-                            <td>1,950円</td>
+                            <td>はり又はきゅう</td>
+                            <td>1,950円（195円）</td>
                         </tr>
                         <tr>
-                            <td>灸</td>
-                            <td>1,610円</td>
-                            <td>1,950円</td>
-                        </tr>
-                        <tr>
-                            <td>鍼灸併用</td>
-                            <td>1,770円</td>
-                            <td>2,230円</td>
+                            <td>はり、きゅう併用</td>
+                            <td>2,230円（223円）</td>
                         </tr>
                     </table>
-                </div>
 
-                <div class="price-table">
-                    <h3>往療料</h3>
+                    <h4>訪問施術料</h4>
                     <table>
                         <tr>
-                            <th>料金</th>
-                            <th>1割</th>
-                            <th>2割</th>
-                            <th>3割</th>
+                            <th>同一日・同一建物で施術を行った患者数</th>
+                            <th>はり又はきゅう</th>
+                            <th>はり・きゅう併用</th>
                         </tr>
                         <tr>
-                            <td>2,300円</td>
-                            <td>230円</td>
-                            <td>460円</td>
-                            <td>690円</td>
+                            <td>1人</td>
+                            <td>3,910円（391円）</td>
+                            <td>4,070円（407円）</td>
+                        </tr>
+                        <tr>
+                            <td>2人</td>
+                            <td>2,760円（276円）</td>
+                            <td>2,920円（292円）</td>
+                        </tr>
+                        <tr>
+                            <td>3〜9人</td>
+                            <td>2,070円（207円）</td>
+                            <td>2,230円（223円）</td>
+                        </tr>
+                        <tr>
+                            <td>10人以上</td>
+                            <td>1,760円（176円）</td>
+                            <td>1,920円（192円）</td>
                         </tr>
                     </table>
-                </div>
 
-                <div class="price-table">
-                    <h3>訪問施術料</h3>
+                    <h4>通所施術料（訪問でない場合）</h4>
                     <table>
                         <tr>
                             <th>種類</th>
-                            <th>料金</th>
-                            <th>1割</th>
+                            <th>金額（1割）</th>
                         </tr>
                         <tr>
-                            <td>訪問施術料1（同一建物で1名施術）</td>
-                            <td>往療費2,300円+施術料</td>
-                            <td>230円</td>
+                            <td>はり又はきゅう</td>
+                            <td>1,610円（161円）</td>
                         </tr>
                         <tr>
-                            <td>訪問施術料2（同一建物で2名施術）</td>
-                            <td>往療費1,150円+施術料</td>
-                            <td>115円</td>
-                        </tr>
-                        <tr>
-                            <td>訪問施術料3（同一建物で3名〜9名施術）</td>
-                            <td>往療費460円+施術料</td>
-                            <td>46円</td>
-                        </tr>
-                        <tr>
-                            <td>訪問施術料3（同一建物で10名〜施術）</td>
-                            <td>往療費150円+施術料</td>
-                            <td>15円</td>
+                            <td>はり、きゅう併用</td>
+                            <td>1,770円（177円）</td>
                         </tr>
                     </table>
-                    <p class="note">※詳しくはお気軽にご質問ください</p>
+
+                    <h4>加算</h4>
+                    <table>
+                        <tr>
+                            <th>項目</th>
+                            <th>金額（1割）</th>
+                        </tr>
+                        <tr>
+                            <td>電療料（電気鍼、温灸器等）</td>
+                            <td>100円（10円）</td>
+                        </tr>
+                        <tr>
+                            <td>施術報告書交付料</td>
+                            <td>480円（48円）</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
@@ -286,9 +703,8 @@
 
         <section class="contact-banner">
             <div class="banner-content">
-                <div class="banner-title">辻村鍼灸接骨院</div>
                 <div class="banner-logo">
-                    <img src="images/logo.png" alt="辻村鍼灸接骨院ロゴ">
+                    <h2 class="clinic-name">辻村鍼灸接骨院</h2>
                 </div>
                 <div class="banner-contact">
                     <div class="phone">
@@ -325,6 +741,19 @@
                     </div>
                 </div>
             </div>
+
+            <div class="footer-nav-section">
+                <h3>【サイトマップ】</h3>
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="symptom.html">このような症状でお困りの方</a></li>
+                    <li><a href="service.html">サービス内容</a></li>
+                    <li><a href="flow.html">ご利用までの流れ</a></li>
+                    <li><a href="faq.html">よくある質問</a></li>
+                    <li><a href="institution.html">介護施設での利用</a></li>
+                    <li><a href="trial.html">無料体験を申し込む</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer-bottom">
@@ -333,9 +762,39 @@
                 <a href="privacy.html">個人情報保護方針</a>
             </div>
             <div class="copyright">
-                <p>©2025 株式会社アコード</p>
+                <p>©2025 会社情報</p>
             </div>
         </div>
     </footer>
+
+    <!-- フッターナビゲーション -->
+    <nav class="footer-nav">
+        <div class="container">
+            <ul class="footer-nav-list">
+                <li class="footer-nav-item">
+                    <a href="/" class="footer-nav-link">ホーム</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/symptom.html" class="footer-nav-link">このような症状でお困りの方</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/service.html" class="footer-nav-link">サービス内容</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/flow.html" class="footer-nav-link">ご利用までの流れ</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/faq.html" class="footer-nav-link">よくある質問</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/institution.html" class="footer-nav-link">介護施設での利用</a>
+                </li>
+                <li class="footer-nav-item">
+                    <a href="/trial.html" class="footer-nav-link">無料体験を申し込む</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /フッターナビゲーション -->
 </body>
 </html> 
