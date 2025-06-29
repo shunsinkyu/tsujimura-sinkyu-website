@@ -95,6 +95,64 @@ header {
     display: inline-block;
 }
 
+.hero-image {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-text {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: white;
+    background: #947C67BF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+
+.flow-intro {
+    width: 100%;
+}
+
+.intro-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* 必要なら制限 */
+    margin: 0 auto;
+}
+
+.intro-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.intro-message {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: white;
+    background: #947C67BF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    max-width: calc(100% - 20px);
+    box-sizing: border-box;
+}
+
+.intro-message h2.intro-title {
+    color: white;
+}
+
+
 @media screen and (max-width: 1024px) {
     .header-top .container {
         padding: 0 15px;
@@ -173,7 +231,7 @@ main {
     z-index: 2;
     padding: 2rem;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 200px auto 0; /* ← ここを大きくすることで下にずらせます */
 }
 
 .main-visual-title {
